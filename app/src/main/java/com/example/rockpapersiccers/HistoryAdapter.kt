@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.game_history_view.view.*
+import java.text.SimpleDateFormat
 
 class HistoryAdapter (private val games:List<GameHistory>) :
 RecyclerView.Adapter<HistoryAdapter.ViewHolder>(){
@@ -34,7 +35,8 @@ inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
 
     fun bind(history: GameHistory){
-       tvDate.text = history.date.toString()
+        val sdf = SimpleDateFormat("dd/MM/yy HH:mm").format(history.date)
+        tvDate.text = sdf.toString()
         tvCpuMove.text = context.getString(R.string.computer)
         tvPlayerMove.text = context.getString(R.string.you)
         tvResult.text= history.gameResult
