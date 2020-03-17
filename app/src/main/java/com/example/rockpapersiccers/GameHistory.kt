@@ -4,7 +4,9 @@ import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
 import kotlinx.android.parcel.Parcelize
+import java.util.*
 
 @Parcelize
 @Entity(tableName = "game_history")
@@ -27,7 +29,13 @@ data class GameHistory (
     var cpuMove: Int,
 
     @ColumnInfo(name = "playermove")
-    var playerMove: Int
+    var playerMove: Int,
+
+    @ColumnInfo(name = "gameresult")
+    var gameResult: String,
+
+    @ColumnInfo(name = "date")
+    var date: Date?
 
 
 ):Parcelable

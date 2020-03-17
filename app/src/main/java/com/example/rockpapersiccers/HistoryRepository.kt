@@ -15,4 +15,18 @@ class HistoryRepository (context: Context){
     suspend fun getAllGames(): List<GameHistory> = historyDao.getAllGames()
 
     suspend fun insertGame(gameHistory: GameHistory) = historyDao.insertGame(gameHistory)
+
+    suspend fun deleteAllGames() = historyDao.deleteAllGames()
+
+    suspend fun getWins(): Int {
+        return  historyDao.getWins()
+    }
+
+    suspend fun getDraws(): Int {
+        return historyDao.getDraws()
+    }
+
+    suspend fun getLosses(): Int {
+        return historyDao.getLosses()
+    }
 }
